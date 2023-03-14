@@ -23,5 +23,38 @@ const images = [
 ];
 
 const actualimgEL = document.getElementById("actual-img");
+const ImgtitleEL = document.getElementById("Img-title");
+const ImgDescriptionEL = document.getElementById("Img-description");
 const arrowupEL = document.getElementById("arrow-up");
-const arrodownEL = document.getElementById("arrow-down");
+const arrowdownEL = document.getElementById("arrow-down");
+
+let CarouselIndex = 0
+
+
+arrowdownEL.addEventListener("click", () => {
+    
+    CarouselIndex++;
+
+    Carousel(images[CarouselIndex]);
+})
+
+arrowupEL.addEventListener("click", () => {
+    
+    CarouselIndex--;
+
+    Carousel(images[CarouselIndex]);
+})
+
+
+
+Carousel(images[CarouselIndex])
+
+function Carousel(CarouselObject) {
+    
+    actualimgEL.src = CarouselObject.image;
+
+    ImgtitleEL.innerText = CarouselObject.title;
+
+    ImgDescriptionEL.innerText = CarouselObject.text;
+}
+
